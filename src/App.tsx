@@ -1,22 +1,23 @@
-import { useSpaceX } from './hooks/useSpaceX';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from '@/pages/Home';
+import Detail from '@/pages/Detail';
+import styles from './App.module.css';
 
 function App() {
-  // Zavoláme náš nový hook
-  const { launches, loading } = useSpaceX();
-
-  // Vypíšeme data do vývojářské konzole v prohlížeči
-  console.log('Načítá se:', loading);
-  console.log('Stažené mise ze SpaceX:', launches);
-
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1>Otestování SpaceX Hooku 🚀</h1>
-      {loading ? (
-        <p>Stahuji data z vesmíru...</p>
-      ) : (
-        <p>Data úspěšně stažena! Počet misí: {launches.length}</p>
-      )}
-    </div>
+  // BrowserRouter obaluje celou aplikaci a hlídá změny URL v prohlížeči
+    <BrowserRouter>
+      {/* Použití stylů z CSS modulu */}
+      <div className={styles.appContainer}>
+        <h1 className={styles.mainTitle}>SpaceX Mise 🚀</h1>
+        <hr className={styles.separator} />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/launch/:id" element={<Detail />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
