@@ -17,7 +17,7 @@ const Home = () => {
     // Výpočty pro statistiky
     const totalMissions = launches.length;
   const successCount = launches.filter(l => l.success === true).length;
-  const failureCount = launches.filter(l => l.success === false).length;
+  const failureCount = launches.filter(l => l.success === false || l.success === null || l.success === undefined).length;
 
     // Filtrace a hledání misí
     const filteredLaunches = [...launches] // Vytvoření kopie pole pro zachování původních dat
@@ -26,7 +26,7 @@ const Home = () => {
         const matchesFilter =
             filter === 'all' ||
             (filter === 'success' && launch.success === true) ||
-            (filter === 'failure' && launch.success === false);
+            (filter === 'failure' && (launch.success === false || launch.success === null || launch.success === undefined));
         const matchesSearch = launch.name.toLowerCase().includes(searchTerm.toLowerCase());
         return matchesFilter && matchesSearch;
     });
