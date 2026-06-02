@@ -8,8 +8,10 @@ interface MissionCardProps {
 }
 
 export const MissionCard = ({ launch }: MissionCardProps) => {
+    // Dynamická volba třídu podle úspěšnosti mise
+  const statusClass = launch.success ? styles.successBadge : styles.failureBadge;
     return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${statusClass}`}>
         <h3 className={styles.title}>{launch.name}</h3>
         <p className={styles.text}><strong>Datum:</strong> {formatDate(launch.date_utc)}</p>
         <p className={styles.text}>
