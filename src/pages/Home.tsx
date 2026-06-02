@@ -14,6 +14,11 @@ const Home = () => {
   if (loading) return <p>Načítání dat...</p>;
     if (error) return <p>Chyba: {error}</p>;
 
+    // Výpočty pro statistiky
+    const totalMissions = launches.length;
+  const successCount = launches.filter(l => l.success === true).length;
+  const failureCount = launches.filter(l => l.success === false).length;
+
     // Filtrace a hledání misí
     const filteredLaunches = [...launches] // Vytvoření kopie pole pro zachování původních dat
     .sort((a, b) => new Date(b.date_utc).getTime() - new Date(a.date_utc).getTime()) // Seřazení podle data (nejdříve nejnovější)
@@ -62,6 +67,22 @@ const Home = () => {
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className={styles.searchInput}
                 />
+            </div>
+
+                {/* Statistiky */}
+            <div className={styles.statsContainer}>
+                <div className={styles.statBox}>
+                <span className={styles.statNumber}>{totalMissions}</span>
+                <span className={styles.statLabel}>Celkem misí</span>
+                </div>
+                <div className={styles.statBox}>
+                <span className={styles.statNumber} style={{ color: '#2ecc71' }}>{successCount}</span>
+                <span className={styles.statLabel}>Úspěšné</span>
+                </div>
+                <div className={styles.statBox}>
+                <span className={styles.statNumber} style={{ color: '#e74c3c' }}>{failureCount}</span>
+                <span className={styles.statLabel}>Neúspěšné</span>
+                </div>
             </div>
             <div className={styles.filterContainer}>
                 <button className={`${styles.filterButton} ${filter === 'all' ? styles.filterButtonActive : ''}`} onClick={() => handleFilterChange('all')}>Vše</button>
