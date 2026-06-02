@@ -1,0 +1,18 @@
+.appContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.mainTitle {
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.separator {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin-bottom: 20px;
+}
