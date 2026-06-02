@@ -21,7 +21,7 @@ const Detail = () => {
 
     return (
         <div className={styles.container}>
-            <Link to="/" className={styles.backLink}>Zpět seznam</Link>
+            <Link to="/" className={styles.backLink}>Zpět na seznam</Link>
 
             <h2 className={styles.title}>{launch.name}</h2>
             <p><strong>Číslo letu:</strong> #{launch.flight_number}</p>
