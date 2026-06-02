@@ -15,7 +15,9 @@ const Home = () => {
     if (error) return <p>Chyba: {error}</p>;
 
     // Filtrace a hledání misí
-    const filteredLaunches = launches.filter((launch) => {
+    const filteredLaunches = [...launches] // Vytvoření kopie pole pro zachování původních dat
+    .sort((a, b) => new Date(b.date_utc).getTime() - new Date(a.date_utc).getTime()) // Seřazení podle data (nejdříve nejnovější)
+    .filter((launch) => {
         const matchesFilter =
             filter === 'all' ||
             (filter === 'success' && launch.success === true) ||
