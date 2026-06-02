@@ -19,6 +19,8 @@ Semestrální práce pro předmět 4IT427 vypracovaná v knihovně React s využ
    ```bash
    npm install
 2. Spusťte vývojový server:
+   ```bash
    npm run dev
 3. Spusťte testovací sadu:
+   ```bash
    npm run test
