@@ -7,12 +7,15 @@
 
 .mainTitle {
   text-align: center;
-  color: #1a1a1a;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 112, 243, 0.6), 0 0 20px rgba(0, 112, 243, 0.4);
+  font-size: 2.5rem;
+  letter-spacing: 1px;
 }
 
 .separator {
   border: 0;
   height: 1px;
-  background: #ccc;
-  margin-bottom: 20px;
+  background: linear-gradient(to right, transparent, #0070f3, transparent);
+  margin-bottom: 30px;
 }

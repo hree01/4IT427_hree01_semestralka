@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  background-color: #0b0d18;
+  /* Efekt jemného hvězdného prachu pomocí gradientů */
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+    radial-gradient(rgba(142, 68, 173, 0.1), transparent 40%); /* Nádech mlhoviny */
+  background-size: 550px 550px, 350px 350px, 250px 250px, 100% 100%;
+  background-position: 0 0, 40px 60px, 130px 270px, 0 0;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
